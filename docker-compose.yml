@@ -2,13 +2,12 @@ web:
     image: nginx:1.23-alpine
     restart: always
     volumes:
+#        - ./html:/usr/share/nginx/html:ro
+#        - ./log/nginx/proxy.log:/var/log/nginx/proxy.log
         - ./nginx.conf:/etc/nginx/nginx.conf:ro
-        - ./html:/usr/share/nginx/html:ro
-        - ./log/nginx/proxy.log:/var/log/nginx/proxy.log
     ports:
         - 80:80
         - 8080:80
-        - 8001:80
     environment:
         - NGINX_HOST= #_HOST_NAME_
         - NGINX_PORT=80
